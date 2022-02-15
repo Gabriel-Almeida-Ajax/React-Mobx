@@ -1,4 +1,5 @@
 import Button from "./button";
+import { useTranslation } from "react-i18next";
 
 type MethodType = {
     method: () => void;
@@ -11,6 +12,8 @@ type DisplayProps = {
 }
 
 export default function Display(props: DisplayProps) {
+    const { t } = useTranslation();
+
     return (
         <div
             style={{
@@ -18,7 +21,7 @@ export default function Display(props: DisplayProps) {
             }}>
 
             <h1>
-                {props.counter}
+                {t('Segundos: ')}{props.counter}
             </h1>
 
             {props.methods.map((method) =>

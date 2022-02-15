@@ -12,30 +12,35 @@ i18n
                 translation: {
                     "Welcome to React": "Welcome to React and react-i18next",
                     "en": "English",
+                    "Segundos: ": "Seconds: ",
                 }
             },
             'pt': {
                 translation: {
                     "Welcome to React": "Bem-vindo ao React e react-i18next",
                     "pt": "Português",
+                    "Segundos: ": "Segundos: ",
                 }
             },
             'es': {
                 translation: {
                     "Welcome to React": "Bienvenido a React y react-i18next",
                     "es": "Español",
+                    "Segundos: ": "Segundos: ",
                 }
             },
             'fr': {
                 translation: {
                     "Welcome to React": "Bienvenue à React et react-i18next",
                     "fr": "Français",
+                    "Segundos: ": "Secondes: ",
                 }
             },
             'de': {
                 translation: {
                     "Welcome to React": "Willkommen bei React und react-i18next",
                     "de": "Deutsch",
+                    "Segundos: ": "Sekunden: ",
                 }
             },
         },

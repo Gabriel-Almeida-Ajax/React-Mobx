@@ -20,7 +20,7 @@ function App() {
 
       {
         Object.keys(i18n.store.data).map(key =>
-          <Button name={key} method={() => i18n.changeLanguage(key)} />
+          <Button key={key} name={key} method={() => i18n.changeLanguage(key)} />
         )
       }
       
