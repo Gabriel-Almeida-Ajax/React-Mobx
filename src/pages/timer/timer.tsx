@@ -1,9 +1,13 @@
 import { observer } from "mobx-react-lite";
-import store from '../../store/timer.store';
+import TimerDefault from '../../store/timer.store';
 
 import Display from "../../components/display";
 
-const TimeView = observer(() => {
+type Props = {
+    store?: typeof TimerDefault;
+}
+
+const TimeView = observer(({ store = TimerDefault }: Props) => {
     return (
         <Display
             counter={store.currentTime}

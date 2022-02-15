@@ -13,6 +13,7 @@ export class TimerStore {
 
         makeObservable(this,{
             currentTime: observable,
+            history: observable,
             start: action,
             stop: action,
             restart: action,
@@ -51,4 +52,4 @@ export class TimerStore {
 
 }
 
-export default new TimerStore(10);
+export default new TimerStore(1000);
