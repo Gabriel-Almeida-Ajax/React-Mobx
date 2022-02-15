@@ -1,4 +1,4 @@
-import { makeObservable, observable, action } from 'mobx'
+import { observable, action, makeObservable } from 'mobx'
 
 export class TimerStore {
     currentTime: number;
@@ -9,40 +9,37 @@ export class TimerStore {
     constructor(updateRate: number) {
         this.currentTime = 0;
         this.updateRate = updateRate;
-        this.interval = undefined;
         this.history = [];
 
-        makeObservable(this, {
-            updateRate: observable,
-            interval: observable,
+        makeObservable(this,{
             currentTime: observable,
-            restart: action,
+            start: action,
             stop: action,
-            start: action
+            restart: action,
         });
     }
 
     _increment() {
         this.currentTime += this.updateRate / 1000;
     }
-    _update(){
+    _update() {
         this.interval = setInterval(() => {
             this._increment();
         }, this.updateRate);
     }
-    restart() {
+    restart = () => {
         this.stop();
         this.start();
     }
-    stop() {
+    stop = () => {
         if (!!this.interval) {
             this.history.push(this.currentTime);
             clearInterval(this.interval);
         }
     }
-    start() {
+    start = () => {
         // Caso esteja rodando algum intervalo, ele é parado
-        if (!!this?.interval)
+        if (!!this.interval)
             this.stop();
 
         // Inicia o intervalo zerado
@@ -51,7 +48,7 @@ export class TimerStore {
         // Atualiza o tempo
         this._update();
     }
-    
+
 }
 
-export default new TimerStore(1000);
+export default new TimerStore(10);

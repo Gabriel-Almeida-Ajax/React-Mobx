@@ -21,7 +21,7 @@ export default function Display(props: DisplayProps) {
             }}>
 
             <h1>
-                {t('Segundos: ')}{props.counter}
+                {t('Segundos: ')}{props.counter.toFixed(2)}
             </h1>
 
             {props.methods.map((method) =>
