@@ -23,6 +23,7 @@ export default function Display(props: DisplayProps) {
 
             {props.methods.map((method) =>
                 <Button
+                    key={method.name}
                     method={method.method}
                     name={method.name}
                 />

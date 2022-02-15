@@ -3,7 +3,7 @@ import store from '../../store/timer.store';
 
 import Display from "../../components/display";
 
-function TimeView() {
+const TimeView = observer(() => {
     return (
         <Display
             counter={store.currentTime}
@@ -14,6 +14,6 @@ function TimeView() {
             ]}
         />
     );
-}
+})
 
-export default observer(TimeView);
+export default TimeView;

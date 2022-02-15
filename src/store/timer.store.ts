@@ -16,29 +16,30 @@ export class TimerStore {
             updateRate: observable,
             interval: observable,
             currentTime: observable,
-            increment: action,
             restart: action,
             stop: action,
             start: action
         });
     }
 
-    increment() {
+    _increment() {
         this.currentTime += this.updateRate / 1000;
     }
-
+    _update(){
+        this.interval = setInterval(() => {
+            this._increment();
+        }, this.updateRate);
+    }
     restart() {
         this.stop();
         this.start();
     }
-
     stop() {
         if (!!this.interval) {
             this.history.push(this.currentTime);
             clearInterval(this.interval);
         }
     }
-
     start() {
         // Caso esteja rodando algum intervalo, ele é parado
         if (!!this?.interval)
@@ -48,14 +49,9 @@ export class TimerStore {
         this.currentTime = 0;
 
         // Atualiza o tempo
-        this.update();
+        this._update();
     }
-
-    update(){
-        this.interval = setInterval(() => {
-            this.increment();
-        }, this.updateRate);
-    }
+    
 }
 
 export default new TimerStore(1000);
